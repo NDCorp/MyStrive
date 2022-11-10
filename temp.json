@@ -1,0 +1,35 @@
+{
+"Course": "ELG5120 Entrepreneurship",
+"demo": true,
+"Name": "Course Evaluation",
+"release": "2022-11-10T02:31:22.334Z",
+"School": "University of Ottawa",
+"version": 1.0,
+"Work":
+    [
+        {
+        "ActualWeightPerc": 1.25,
+        "Category": "Individual Work",
+        "Due": "Week 2",
+        "DueDate": "null",
+        "RelativeWeightPerc": 8.3,
+        "Title": "Assignment 1: Personality Test"
+        },
+        {
+        "ActualWeightPerc": 2.5,
+        "Category": "Individual Work",
+        "Due": "Week 3",
+        "DueDate": "null",
+        "RelativeWeightPerc": 16.6,
+        "Title": "Assignment 2: Elevator Pitch"
+        },
+        {
+        "ActualWeightPerc": 1.25,
+        "Category": "Group Activities",
+        "Due": "Week 3",
+        "DueDate": "null",
+        "RelativeWeightPerc": 5,
+        "Title": "GA 1: Business Conceptualization"
+        }
+    ]
+}
