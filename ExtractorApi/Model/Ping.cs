@@ -1,9 +1,10 @@
 namespace ExtractorApi.Model
 {
-    public class Test
+    // Model
+    public class Ping
     {
         public DateTime Date { get; set; }
 
-        public string? Response { get; set; }
+        public string? Response { get; set; } 
     }
 }

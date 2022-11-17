@@ -1,3 +1,4 @@
+using ExtractorApi.Helper;
 using ExtractorApi.Middleware;
 using Microsoft.OpenApi.Models;
 
@@ -21,6 +22,9 @@ builder.Services.AddSwaggerGen();
 //    });
 //});
 
+builder.Services.AddScoped<IExtractorHelper, ExtractorHelper>();
+builder.Services.AddScoped<IAzureStorageHelper, AzureStorageHelper>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -30,8 +34,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseMiddleware<SecurityMiddleware>();
-
+//app.UseMiddleware<SecurityMiddleware>();  // Activete Token validation for HTTP requests
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

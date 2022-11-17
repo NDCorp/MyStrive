@@ -8,22 +8,22 @@ namespace ExtractorApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class TestController : ControllerBase
+    public class PingController : ControllerBase
     {
-        private readonly ILogger<TestController> _logger;
+        private readonly ILogger<PingController> _logger;
 
-        public TestController(ILogger<TestController> logger)
+        public PingController(ILogger<PingController> logger)
         {
             _logger = logger;
         }
 
         [HttpGet]
-        public IEnumerable<Test> TestApi()
+        public IEnumerable<Ping> PingApi()
         {
-            return Enumerable.Range(1, 1).Select(index => new Test
+            return Enumerable.Range(1, 1).Select(index => new Ping
             {
                 Date = DateTime.Now,
-                Response = "pong"
+                Response = "pong" 
             }).ToArray();
         }
 

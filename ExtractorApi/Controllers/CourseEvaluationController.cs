@@ -12,10 +12,12 @@ namespace ExtractorApi.Controllers
     public class CourseEvaluationController : ControllerBase
     {
         private readonly ILogger<CourseEvaluationController> _logger;
+        private readonly IExtractorHelper _extractorHelper;
 
-        public CourseEvaluationController(ILogger<CourseEvaluationController> logger)
+        public CourseEvaluationController(ILogger<CourseEvaluationController> logger, IExtractorHelper extractorHelper)
         {
             _logger = logger;
+            _extractorHelper = extractorHelper;
         }
 
         // GET: /CourseEvaluation/F2022
@@ -24,8 +26,9 @@ namespace ExtractorApi.Controllers
         {
             try
             {
-                var helper = new ExtractorHelper();
-                var allData = await helper.MergeData(term);
+                //var helper = new ExtractorHelper();
+                //var allData = await helper.MergeData(term);
+                var allData = await _extractorHelper.MergeData(term);
 
                 if (allData?.Any() == true)
                     return Ok(allData);
@@ -42,13 +45,14 @@ namespace ExtractorApi.Controllers
 
         // POST: /CourseEvaluation
         [HttpPost]
-        public async Task<IActionResult> PostSyllabusData([FromBody] CourseEvaluation CourseData)
+        public async Task<IActionResult> PostSyllabusData([FromBody] CourseEvaluation courseData)
         {
             try
             {
-                var helper = new ExtractorHelper();
-                await helper.SaveData(CourseData);
-                return CreatedAtAction("GetAllSyllabusData", new { term = CourseData.Term }, CourseData);
+                //var helper = new ExtractorHelper();
+                //await helper.SaveData(CourseData);
+                await _extractorHelper.SaveData(courseData);
+                return CreatedAtAction("GetAllSyllabusData", new { term = courseData.Term }, courseData);
             }
             catch (Exception ex)
             {
