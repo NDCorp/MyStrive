@@ -85,7 +85,7 @@ namespace ExtractorApi.Helper
 
                     if (await directory.ExistsAsync())
                     {
-                        var shareFiles = directory.GetFilesAndDirectories("Course_");
+                        var shareFiles = directory.GetFilesAndDirectories(fileNameFormat);
 
                         // Read all files from Azure share folder
                         if (shareFiles != null) { 

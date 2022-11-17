@@ -88,13 +88,13 @@ namespace ExtractorApi.Helper
         private async Task<List<CourseEvaluation>> ReadFile(string path, string term)
         {
             var courses = new List<CourseEvaluation>();
-            var fileNameFormat = $"{term}*{FILE_EXTENSION}";
+            var fileNameFormat = $"Course_{term}";
 
             // Read data from all specific files available 
             if (Debugger.IsAttached)
             {
                 // Read all files from local share folder; if debugging
-                foreach (var f in Directory.GetFiles(path, fileNameFormat, SearchOption.TopDirectoryOnly))
+                foreach (var f in Directory.GetFiles(path, $"{fileNameFormat}*{FILE_EXTENSION}", SearchOption.TopDirectoryOnly))
                 {
                     using (StreamReader reader = File.OpenText(f))
                     {
